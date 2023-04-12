@@ -1,0 +1,64 @@
+<a class='modal__link' href='#'>
+  {{#if this.poster_path}}
+    <img
+      class='modal__poster'
+      src='https://image.tmdb.org/t/p/w500/{{this.poster_path}}'
+      alt='Movie poster'
+      loading='lazy'
+    />
+  {{/if}}
+  {{#unless this.poster_path}}
+    <div class='modal__poster img-placeholder'></div>
+  {{/unless}}
+</a>
+<div class='modal__meta'>
+  <h3 class='modal__title'>{{this.title}}</h3>
+  <table class='meta-table'>
+    <tr>
+      <td class='meta-table-key'>Vote/Votes</td>
+      <td class='meta-table-value'>
+        <span class='meta-table__votes-highlighted'>{{this.vote_average}}</span>
+        /
+        <span class='meta-table__votes-dimmed'>{{this.vote_count}}</span>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='meta-table-key'>Popularity</td>
+      <td class='meta-table-value'>{{this.popularity}}</td>
+    </tr>
+
+    <tr>
+      <td class='meta-table-key'>Original Title</td>
+      <td
+        class='meta-table-value meta-table__original_title'
+      >{{this.original_title}}</td>
+    </tr>
+
+    <tr>
+      <td class='meta-table-key'>Genre</td>
+      <td class='meta-table-value'>{{this.genres}}</td>
+    </tr>
+  </table>
+
+  <p class='meta__about'>ABOUT</p>
+  <p>{{this.about}}</p>
+
+  <div class='modal-buttons'>
+    <button
+      type='button'
+      class='modal__button add-to-watched'
+      data-id='{{this.id}}'
+    >
+      ADD TO WATCHED
+    </button>
+    <button
+      type='button'
+      class='modal__button add-to-queue'
+      data-id='{{this.id}}'
+    >
+      ADD TO QUEUE
+    </button>
+  </div>
+
+</div>
